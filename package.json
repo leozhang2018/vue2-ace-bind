@@ -1,0 +1,28 @@
+{
+  "name": "vue2-ace-bind",
+  "version": "0.0.1",
+  "description": "A simple vuejs 2 binding for ace-edit",
+  "main": "vue2-ace.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leozhang2018/vue2-ace-bind.git"
+  },
+  "keywords": [
+    "vue",
+    "vue2",
+    "ace-editor"
+  ],
+  "author": "leozhang2018",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/leozhang2018/vue2-ace-bind/issues"
+  },
+  "homepage": "https://github.com/leozhang2018/vue2-ace-bind#readme",
+  "dependencies": {
+    "brace": "^0.8.0",
+    "emmet": "git+https://github.com/cloud9ide/emmet-core.git#41973fcc70392864c7a469cf5dcd875b88b93d4a"
+  }
+}
