@@ -23,6 +23,6 @@
   "homepage": "https://github.com/leozhang2018/vue2-ace-bind#readme",
   "dependencies": {
     "brace": "^0.8.0",
-    "emmet": "git+https://github.com/cloud9ide/emmet-core.git#41973fcc70392864c7a469cf5dcd875b88b93d4a"
+    "emmet": "1.0.0"
   }
 }
