@@ -1,9 +1,5 @@
 var ace = require('brace');
 
-require(['emmet/emmet'], function (data) {
-    window.emmet = data.emmet;
-});
-
 module.exports = {
     template: "<div :style=\"{height: height ? px(height) : '100%',width: width ? px(width) : '100%'}\"></div>",
     props: {
@@ -44,7 +40,6 @@ module.exports = {
         var vm = this;
         var lang = this.lang || 'sh';
         var theme = this.theme || 'terminal';
-        require('brace/ext/emmet');
         var editor = vm.editor = ace.edit(this.$el);
         this.$emit('init', editor);
 
