@@ -17,8 +17,12 @@ module.exports = {
             type: String,
             required: true
         },
-        lang: String,
-        theme: String,
+        lang: {
+            default: 'sh'
+          },
+        theme: {
+            default: 'xcode'
+        },
         height: true,
         width: true,
         options: {
@@ -48,8 +52,8 @@ module.exports = {
     },
     mounted: function () {
         var vm = this;
-        var lang = this.lang || 'sh';
-        var theme = this.theme || 'terminal';
+        var lang = this.lang;
+        var theme = this.theme;
         var editor = vm.editor = ace.edit(this.$el);
         this.$emit('init', editor);
 
@@ -65,7 +69,7 @@ module.exports = {
             vm.contentSwap = content;
         });
     },
-    beforeCreate () {
+    created() {
         require(`brace/theme/${this.theme}`)
         require(`brace/mode/${this.lang}`)
     }
