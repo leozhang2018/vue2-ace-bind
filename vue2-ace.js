@@ -1,4 +1,14 @@
 var ace = require('brace');
+require('brace/ext/searchbox')
+
+const defaultOptions = {
+    enableEmmet: true,
+    showLineNumbers: true,
+    showFoldWidgets: true,
+    showGutter: false,
+    displayIndentGuides: false,
+    showPrintMargin: false
+}
 
 module.exports = {
     template: "<div :style=\"{height: height ? px(height) : '100%',width: width ? px(width) : '100%'}\"></div>",
@@ -7,13 +17,17 @@ module.exports = {
             type: String,
             required: true
         },
-        lang: String,
-        theme: String,
+        lang: {
+            default: 'sh'
+          },
+        theme: {
+            default: 'xcode'
+        },
         height: true,
         width: true,
         options: {
             type: Object,
-            default: function () { return {}; }
+            default: () => defaultOptions
         }
     },
     data: function () {
@@ -38,8 +52,8 @@ module.exports = {
     },
     mounted: function () {
         var vm = this;
-        var lang = this.lang || 'sh';
-        var theme = this.theme || 'terminal';
+        var lang = this.lang;
+        var theme = this.theme;
         var editor = vm.editor = ace.edit(this.$el);
         this.$emit('init', editor);
 
@@ -54,7 +68,9 @@ module.exports = {
             vm.$emit('input', content);
             vm.contentSwap = content;
         });
-
-
+    },
+    created() {
+        require(`brace/theme/${this.theme}`)
+        require(`brace/mode/${this.lang}`)
     }
 }
