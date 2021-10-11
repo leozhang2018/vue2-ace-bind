@@ -1,4 +1,14 @@
 var ace = require('brace');
+require('brace/ext/searchbox')
+
+const defaultOptions = {
+    enableEmmet: true,
+    showLineNumbers: true,
+    showFoldWidgets: true,
+    showGutter: false,
+    displayIndentGuides: false,
+    showPrintMargin: false
+}
 
 module.exports = {
     template: "<div :style=\"{height: height ? px(height) : '100%',width: width ? px(width) : '100%'}\"></div>",
@@ -13,7 +23,7 @@ module.exports = {
         width: true,
         options: {
             type: Object,
-            default: function () { return {}; }
+            default: () => defaultOptions
         }
     },
     data: function () {
@@ -54,7 +64,9 @@ module.exports = {
             vm.$emit('input', content);
             vm.contentSwap = content;
         });
-
-
+    },
+    beforeCreate () {
+        require(`brace/theme/${this.theme}`)
+        require(`brace/mode/${this.lang}`)
     }
 }
