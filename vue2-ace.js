@@ -2,7 +2,6 @@ var ace = require('brace');
 require('brace/ext/searchbox')
 
 const defaultOptions = {
-    enableEmmet: true,
     showLineNumbers: true,
     showFoldWidgets: true,
     showGutter: false,
