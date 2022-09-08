@@ -1,6 +1,6 @@
 {
   "name": "vue2-ace-bind",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A simple vuejs 2 binding for ace-edit",
   "main": "vue2-ace.js",
   "scripts": {
